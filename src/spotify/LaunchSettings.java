@@ -45,7 +45,10 @@ public class LaunchSettings extends UiAutomatorTestCase {
 		assertTrue("OOOOOpps",
 				Utils.openApp(this, "Spotify", "com.spotify.music"));
 		returnToMainMenu();
+		Utils.launchTcpdump("spotify", 900);
 		listenMusic();
+		sleep(750);
+		Utils.killTcpdump();
 	}
 
 }
