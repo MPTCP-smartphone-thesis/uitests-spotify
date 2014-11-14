@@ -44,10 +44,11 @@ public class LaunchSettings extends UiAutomatorTestCase {
 	public void testDemo() throws UiObjectNotFoundException {
 		assertTrue("OOOOOpps",
 				Utils.openApp(this, "Spotify", "com.spotify.music"));
+		sleep(10000);
 		returnToMainMenu();
 		Utils.launchTcpdump("spotify", 900);
 		listenMusic();
-		sleep(750);
+		sleep(750000);
 		Utils.killTcpdump();
 	}
 
