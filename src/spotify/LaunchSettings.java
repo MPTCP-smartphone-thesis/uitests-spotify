@@ -10,6 +10,7 @@ public class LaunchSettings extends UiAutomatorTestCase {
 
 	private static String ID_BROWSE_PANEL_BUTTON = "com.spotify.music:id/navigation_item_browse";
 	private static String ID_CARD_VIEW = "com.spotify.music:id/card_view";
+	private static int TIME_LISTENING = 300000;
 
 	private void returnToMainMenu() {
 		UiObject mainPanel = Utils
@@ -37,7 +38,7 @@ public class LaunchSettings extends UiAutomatorTestCase {
 				.getObjectWithClassNameAndText("android.widget.Button",
 						"SHUFFLE PLAY")));
 		/* Now enjoy the music */
-		sleep(750000);
+		sleep(TIME_LISTENING);
 	}
 
 	public void testDemo() throws UiObjectNotFoundException {
