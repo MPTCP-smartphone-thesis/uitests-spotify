@@ -23,8 +23,7 @@ public class LaunchSettings extends UiAutomatorTestCase {
 
 	private void listenMusic() {
 		sleep(1000);
-		assertTrue("Cannot have panel menu",
- Utils.click(Utils
+		assertTrue("Cannot have panel menu", Utils.click(Utils
 				.getObjectWithDescription("YOUR MUSIC, Navigate up")));
 		sleep(1000);
 		assertTrue("Cannot browse music",
@@ -34,11 +33,11 @@ public class LaunchSettings extends UiAutomatorTestCase {
 				"Cannot have first album card",
 				Utils.click(Utils.getObjectWithId(ID_CARD_VIEW, 0)));
 		sleep(2000);
-		assertTrue(
-				"Cannot listen music",
- Utils.click(Utils
+		assertTrue("Cannot listen music", Utils.click(Utils
 				.getObjectWithClassNameAndText("android.widget.Button",
 						"SHUFFLE PLAY")));
+		/* Now enjoy the music */
+		sleep(750000);
 	}
 
 	public void testDemo() throws UiObjectNotFoundException {
@@ -48,7 +47,6 @@ public class LaunchSettings extends UiAutomatorTestCase {
 		returnToMainMenu();
 		Utils.launchTcpdump("spotify", 900);
 		listenMusic();
-		sleep(750000);
 		Utils.killTcpdump();
 	}
 
