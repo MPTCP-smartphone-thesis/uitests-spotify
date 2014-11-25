@@ -46,9 +46,14 @@ public class LaunchSettings extends UiAutomatorTestCase {
 				Utils.openApp(this, "Spotify", "com.spotify.music"));
 		sleep(10000);
 		returnToMainMenu();
-		Utils.launchTcpdump("spotify");
+		String iface = getParams().getString("iface");
+		if (iface != null) {
+			Utils.launchTcpdump("spotify", iface);
+		}
 		listenMusic();
-		Utils.killTcpdump();
+		if (iface != null) {
+			Utils.killTcpdump();
+		}
 	}
 
 }
