@@ -10,7 +10,7 @@ public class LaunchSettings extends UiAutomatorTestCase {
 
 	private static final String ID_BROWSE_PANEL_BUTTON = "com.spotify.music:id/navigation_item_browse";
 	private static final String ID_CARD_VIEW = "com.spotify.music:id/card_view";
-	private static final int TIME_LISTENING = 120000;
+	private static final int TIME_LISTENING = 80000;
 	private static final int MAX_ERRORS = 10;
 
 	private void returnToMainMenu() {
@@ -65,6 +65,7 @@ public class LaunchSettings extends UiAutomatorTestCase {
 		sleep(10000);
 		returnToMainMenu();
 		listenMusic();
+		Utils.returnToHomeScreen(this);
 	}
 
 }
