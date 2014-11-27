@@ -38,6 +38,7 @@ public class LaunchSettings extends UiAutomatorTestCase {
 			sleep(1000);
 		}
 		if (errors >= MAX_ERRORS) {
+			Utils.returnToHomeScreen(this);
 			assertTrue("Cannot have first album card",
 					Utils.click(Utils.getObjectWithId(ID_CARD_VIEW, 0)));
 		}
@@ -51,6 +52,7 @@ public class LaunchSettings extends UiAutomatorTestCase {
 			sleep(1000);
 		}
 		if (errors >= MAX_ERRORS) {
+			Utils.returnToHomeScreen(this);
 			assertTrue("Cannot listen music", Utils.click(Utils
 					.getObjectWithClassNameAndText("android.widget.Button",
 							"SHUFFLE PLAY")));
