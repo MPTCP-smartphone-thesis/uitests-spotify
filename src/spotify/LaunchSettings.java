@@ -63,7 +63,9 @@ public class LaunchSettings extends UiAutomatorTestCase {
 
 	public void testDemo() throws UiObjectNotFoundException {
 		assertTrue("OOOOOpps",
-				Utils.openApp(this, "Spotify", "com.spotify.music"));
+				Utils.openApp(this, "Spotify",
+						"com.spotify.music",
+						"com.spotify.music.MainActivity"));
 		sleep(10000);
 		returnToMainMenu();
 		listenMusic();
