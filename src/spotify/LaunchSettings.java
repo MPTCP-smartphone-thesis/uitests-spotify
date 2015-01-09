@@ -24,17 +24,16 @@ public class LaunchSettings extends UiAutomatorTestCase {
 		assertTrue("Cannot browse music",
 				Utils.click(Utils.getObjectWithId(ID_BROWSE_PANEL_BUTTON)));
 		sleep(2000);
+
 		// List takes some times to be uploaded, especially for low connections
 		errors = 0;
 		while (!Utils.click(Utils.getObjectWithId(ID_CARD_VIEW, 0))
 				&& errors++ < MAX_ERRORS)
 			sleep(1000);
-		if (errors >= MAX_ERRORS) {
-			Utils.returnToHomeScreen(this);
-			assertTrue("Cannot have first album card",
-					Utils.click(Utils.getObjectWithId(ID_CARD_VIEW, 0)));
-		}
+		Utils.customAssertTrue(this, "Cannot have first album card",
+				errors <= MAX_ERRORS);
 		sleep(2000);
+
 		// The same for the SHUFFLE PLAY button (but less likely to occur if
 		// previously succeeded)
 		errors = 0;
@@ -42,12 +41,9 @@ public class LaunchSettings extends UiAutomatorTestCase {
 				"android.widget.Button", "SHUFFLE PLAY"))
 				&& errors++ < MAX_ERRORS)
 			sleep(1000);
-		if (errors >= MAX_ERRORS) {
-			Utils.returnToHomeScreen(this);
-			assertTrue("Cannot listen music", Utils.click(Utils
-					.getObjectWithClassNameAndText("android.widget.Button",
-							"SHUFFLE PLAY")));
-		}
+		Utils.customAssertTrue(this, "Cannot listen music",
+				errors <= MAX_ERRORS);
+
 		/* Now enjoy the music */
 		sleep(TIME_LISTENING);
 	}
