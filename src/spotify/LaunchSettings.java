@@ -9,12 +9,11 @@ public class LaunchSettings extends UiAutomatorTestCase {
 
 	private static final String ID_BROWSE_PANEL_BUTTON = "com.spotify.music:id/navigation_item_browse";
 	private static final String ID_CARD_VIEW = "com.spotify.music:id/card_view";
-	private static int TIME_LISTENING = 60000;
 	private static final String ID_BUTTON_HOME = "android:id/home";
+	private static int TIME_LISTENING = 75000;
 	private static final int MAX_ERRORS = 7;
 
 	private void listenMusic() {
-		sleep(1000);
 		// Panel
 		int errors = 0;
 		while (!Utils.click(ID_BUTTON_HOME) && errors++ < MAX_ERRORS)
@@ -65,7 +64,8 @@ public class LaunchSettings extends UiAutomatorTestCase {
 						"com.spotify.music",
 						"com.spotify.music.MainActivity"));
 		TIME_LISTENING *= Utils.getMultTime(this);
-		sleep(10000);
+		sleep(5000);
+
 		listenMusic();
 		Utils.returnToHomeScreen(this);
 	}
