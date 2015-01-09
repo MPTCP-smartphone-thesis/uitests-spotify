@@ -25,11 +25,10 @@ public class LaunchSettings extends UiAutomatorTestCase {
 				Utils.click(Utils.getObjectWithId(ID_BROWSE_PANEL_BUTTON)));
 		sleep(2000);
 		// List takes some times to be uploaded, especially for low connections
-		int errors = 0;
+		errors = 0;
 		while (!Utils.click(Utils.getObjectWithId(ID_CARD_VIEW, 0))
-				&& errors < MAX_ERRORS) {
+				&& errors++ < MAX_ERRORS)
 			sleep(1000);
-		}
 		if (errors >= MAX_ERRORS) {
 			Utils.returnToHomeScreen(this);
 			assertTrue("Cannot have first album card",
@@ -41,9 +40,8 @@ public class LaunchSettings extends UiAutomatorTestCase {
 		errors = 0;
 		while (!Utils.click(Utils.getObjectWithClassNameAndText(
 				"android.widget.Button", "SHUFFLE PLAY"))
-				&& errors < MAX_ERRORS) {
+				&& errors++ < MAX_ERRORS)
 			sleep(1000);
-		}
 		if (errors >= MAX_ERRORS) {
 			Utils.returnToHomeScreen(this);
 			assertTrue("Cannot listen music", Utils.click(Utils
