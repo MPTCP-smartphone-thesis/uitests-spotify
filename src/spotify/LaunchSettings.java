@@ -62,6 +62,10 @@ public class LaunchSettings extends UiAutomatorTestCase {
 	}
 
 	public void testDemo() throws UiObjectNotFoundException {
+		// Purge cache
+		String cacheDir = Utils.homeDir + "/Android/data/com.spotify.music/files/spotifycache/Storage";
+		Utils.runAsUser("rm -rf " + cacheDir);
+
 		assertTrue("OOOOOpps",
 				Utils.openApp(this, "Spotify",
 						"com.spotify.music",
